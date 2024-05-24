@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="681a2d32-31e5-47b0-928e-19bc86e116f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/multiple-stop-optimization.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Edge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Graph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vertex.java" afterDir="false" />
+    <list default="true" id="681a2d32-31e5-47b0-928e-19bc86e116f7" name="Changes" comment="enhance">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algoritms/MyAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algoritms/MyAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graph/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/graph/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graph/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/graphics/GraphPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graphics/GraphPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edges.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/nodes.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/out.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +23,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -32,6 +31,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Ryeonasd&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Ryeonasd/algorithms-project-2024.git&quot;,
+    &quot;accountId&quot;: &quot;d3a492c5-2728-4b2b-876d-babefbb0d7e3&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -43,6 +54,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
@@ -53,14 +65,24 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;application.elevation&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="main.java.Main" />
+      <module name="multiple-stop-optimization" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
       </set>
     </attachedChunks>
   </component>
@@ -76,11 +98,64 @@
       <workItem from="1715613866749" duration="5000" />
       <workItem from="1715660440928" duration="23000" />
       <workItem from="1716183223030" duration="467000" />
-      <workItem from="1716183720705" duration="2480000" />
+      <workItem from="1716183720705" duration="3408000" />
+      <workItem from="1716188163726" duration="1269000" />
+      <workItem from="1716302043211" duration="5277000" />
+      <workItem from="1716340961877" duration="6031000" />
+      <workItem from="1716359955106" duration="935000" />
+      <workItem from="1716380018983" duration="38000" />
+      <workItem from="1716380059760" duration="128000" />
+      <workItem from="1716429171286" duration="41000" />
+      <workItem from="1716429318012" duration="3000" />
+      <workItem from="1716448448879" duration="2109000" />
+      <workItem from="1716450833325" duration="4086000" />
+      <workItem from="1716455660095" duration="656000" />
+      <workItem from="1716457730824" duration="1584000" />
+      <workItem from="1716471339716" duration="42000" />
+      <workItem from="1716553320525" duration="9586000" />
+      <workItem from="1716601093810" duration="36325000" />
+      <workItem from="1716733793663" duration="7157000" />
+      <workItem from="1716782266017" duration="317000" />
+      <workItem from="1716785195849" duration="3636000" />
     </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1716187420266</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716187420266</updated>
+    </task>
+    <task id="LOCAL-00002" summary="implement graph generation and visualization">
+      <option name="closed" value="true" />
+      <created>1716553498685</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716553498685</updated>
+    </task>
+    <task id="LOCAL-00003" summary="enhance">
+      <option name="closed" value="true" />
+      <created>1716737494858</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716737494858</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <MESSAGE value="implement graph generation and visualization" />
+    <MESSAGE value="enhance" />
+    <option name="LAST_COMMIT_MESSAGE" value="enhance" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
