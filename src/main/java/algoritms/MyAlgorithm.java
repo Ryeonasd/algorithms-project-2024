@@ -118,7 +118,7 @@ class Entry implements Comparable<Entry> {
     private double h(Vertex goal) {
         return Math.sqrt(Math.pow(vertex.getLongitude() - goal.getLongitude(), 2)
                         + Math.pow(vertex.getLatitude() - goal.getLatitude(), 2))
-                * 6378135;
+                * 6378135 / 110;
     }
 
     public List<Vertex> track() {

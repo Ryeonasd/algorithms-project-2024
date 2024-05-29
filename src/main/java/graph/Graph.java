@@ -69,11 +69,22 @@ public class Graph {
                 if (source == null || destination == null) continue;
 
                 double length = Double.parseDouble(tokens[4]);
-                if (!(tokens[6].equals("Forbidden")/* || tokens[6].equals("Residential")*/)) {
-                    source.addEdge(new Edge(destination, length));
+                switch (tokens[6]) {
+                    case "Motorway" -> source.addEdge(new Edge(destination, length / 100.0));
+                    case "Trunk" -> source.addEdge(new Edge(destination, length / 90.0));
+                    case "Primary" -> source.addEdge(new Edge(destination, length / 80.0));
+                    case "Secondary" -> source.addEdge(new Edge(destination, length / 80.0));
+                    case "Tertiary" -> source.addEdge(new Edge(destination, length / 60.0));
+                    case "Residential" -> source.addEdge(new Edge(destination, length / 50.0));
                 }
-                if (!(tokens[7].equals("Forbidden")/* || tokens[7].equals("Residential")*/)) {
-                    destination.addEdge(new Edge(source, length));
+
+                switch (tokens[7]) {
+                    case "Motorway" -> destination.addEdge(new Edge(source, length / 100.0));
+                    case "Trunk" -> destination.addEdge(new Edge(source, length / 90.0));
+                    case "Primary" -> destination.addEdge(new Edge(source, length / 80.0));
+                    case "Secondary" -> destination.addEdge(new Edge(source, length / 80.0));
+                    case "Tertiary" -> destination.addEdge(new Edge(source, length / 60.0));
+                    case "Residential" -> destination.addEdge(new Edge(source, length / 50.0));
                 }
             }
 

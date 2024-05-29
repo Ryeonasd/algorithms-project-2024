@@ -6,6 +6,8 @@ import main.java.graph.Vertex;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseWheelEvent;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
@@ -16,7 +18,6 @@ public class GraphPanel extends JPanel {
     private List<Vertex> vertices;
     private List<Vertex> stopovers;
     private List<Vertex> route;
-    private double padding;
     private double radius;
     private double minX;
     private double maxX;
@@ -24,11 +25,10 @@ public class GraphPanel extends JPanel {
     private double maxY;
     private double scale_factor;
 
-    public GraphPanel(Graph graph, List<Vertex> route, int width, int height, int padding) {
+    public GraphPanel(Graph graph, List<Vertex> route) {
         this.vertices = graph.getVertices();
         this.stopovers = graph.getStopovers();
         this.route = route;
-        this.padding = padding;
         this.radius = 3;
 
         minX = vertices.stream().map(Vertex::getLongitude).min(Comparator.naturalOrder()).orElse(0d);
@@ -36,9 +36,19 @@ public class GraphPanel extends JPanel {
         minY = vertices.stream().map(Vertex::getLatitude).min(Comparator.naturalOrder()).orElse(0d);
         maxY = vertices.stream().map(Vertex::getLatitude).max(Comparator.naturalOrder()).orElse(0d);
 
-        double x_scale_factor = (width - 2 * padding)/(maxX - minX);
-        double y_scale_factor = (height - 2 * padding)/(maxY - minY);
-        scale_factor = Double.min(x_scale_factor, y_scale_factor);
+        scale_factor = 5000;
+
+        MouseAdapter ma = new MouseAdapter() {
+            Point origin;
+
+            @Override
+            public void mouseWheelMoved(MouseWheelEvent e) {
+                scale_factor -= 100 * e.getPreciseWheelRotation();
+                repaint();
+            }
+        };
+
+        addMouseWheelListener(ma);
     }
 
     @Override
@@ -60,15 +70,6 @@ public class GraphPanel extends JPanel {
 
         ArrayList<Vertex> stopovers = new ArrayList<>(this.stopovers);
 
-        g2d.setColor(Color.GREEN);
-        fillVertex(stopovers.removeFirst(), g2d);
-        g2d.setColor(Color.RED);
-        fillVertex(stopovers.removeLast(), g2d);
-        g2d.setColor(Color.BLUE);
-        for (Vertex vertex : stopovers) {
-            fillVertex(vertex, g2d);
-        }
-
         g2d.setColor(Color.ORANGE);
         Vertex currentVertex = route.get(0);
         for (int i = 1; i < route.size(); i++) {
@@ -83,6 +84,20 @@ public class GraphPanel extends JPanel {
 
             currentVertex = nextVertex;
         }
+
+        g2d.setColor(Color.GREEN);
+        fillVertex(stopovers.removeFirst(), g2d);
+        g2d.setColor(Color.RED);
+        fillVertex(stopovers.removeLast(), g2d);
+        g2d.setColor(Color.BLUE);
+        for (Vertex vertex : stopovers) {
+            fillVertex(vertex, g2d);
+        }
+    }
+
+    @Override
+    public Dimension getPreferredSize() {
+        return new Dimension((int) ((maxX - minX)*scale_factor), (int) ((maxY - minY)*scale_factor));
     }
 
     private void drawVertex(Vertex v, Graphics2D g2d) {
@@ -111,10 +126,10 @@ public class GraphPanel extends JPanel {
     }
 
     private double getCenterX(Vertex v) {
-        return (v.getLongitude() - minX) * scale_factor + padding;
+        return (v.getLongitude() - minX) * scale_factor;
     }
 
     private double getCenterY(Vertex v) {
-        return (maxY - v.getLatitude()) * scale_factor + padding;
+        return (maxY - v.getLatitude()) * scale_factor;
     }
 }
