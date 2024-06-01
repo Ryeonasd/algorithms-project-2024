@@ -6,7 +6,7 @@ import main.java.graph.Vertex;
 
 import java.util.*;
 
-public class BF implements RoutingStrategy {
+public class Permutation implements RoutingStrategy {
     private static double minDist = Double.MAX_VALUE;
     private static ArrayList<Integer> bestRoute = new ArrayList<>();
     private static int check1 = 0;
@@ -42,7 +42,7 @@ public class BF implements RoutingStrategy {
         }
         endTime = System.currentTimeMillis();
         duration = endTime - startTime;
-        System.out.println("BF take " + duration + "ms and total route weight is " + RoutingStrategy.getRouteCost(route));
+        System.out.println("Permutaion take " + duration + "ms and total route weight is " + RoutingStrategy.getRouteCost(route));
         return route;
     }
 
