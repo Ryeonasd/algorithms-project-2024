@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.Clock;
 import java.util.*;
 
 public class Graph {
@@ -64,18 +65,37 @@ public class Graph {
                 long sourceId = Long.parseLong(tokens[2]);
                 long destId = Long.parseLong(tokens[3]);
 
+
                 Vertex source = vertexMap.get(sourceId);
                 Vertex destination = vertexMap.get(destId);
                 if (source == null || destination == null) continue;
 
+                double velocity = -1;
+                double minDis = 10;
+                BufferedReader brVel = new BufferedReader(new FileReader(filepath + "/vel.csv"));
+                String velLine = brVel.readLine();
+                while ((velLine = brVel.readLine()) != null){
+
+                    String[] veltokens = velLine.split(",");
+                    double sum = Math.abs(Double.parseDouble(veltokens[2]) - destination.getLatitude()) + Math.abs(Double.parseDouble(veltokens[3]) - destination.getLongitude());
+                    if(sum < minDis){
+                        minDis = sum;
+                        velocity = Double.parseDouble(veltokens[1]);
+                    }
+                }
+
+                if(velocity == -1) {
+                    velocity = 50;
+                }
+
                 double length = Double.parseDouble(tokens[4]);
                 switch (tokens[6]) {
-                    case "Motorway" -> source.addEdge(new Edge(destination, length / 100.0));
-                    case "Trunk" -> source.addEdge(new Edge(destination, length / 90.0));
-                    case "Primary" -> source.addEdge(new Edge(destination, length / 80.0));
-                    case "Secondary" -> source.addEdge(new Edge(destination, length / 80.0));
-                    case "Tertiary" -> source.addEdge(new Edge(destination, length / 60.0));
-                    case "Residential" -> source.addEdge(new Edge(destination, length / 50.0));
+                    case "Motorway" -> source.addEdge(new Edge(destination, length / (velocity * 2)));
+                    case "Trunk" -> source.addEdge(new Edge(destination, length / (velocity * 1.8)));
+                    case "Primary" -> source.addEdge(new Edge(destination, length / (velocity * 1.6)));
+                    case "Secondary" -> source.addEdge(new Edge(destination, length / (velocity * 1.6)));
+                    case "Tertiary" -> source.addEdge(new Edge(destination, length / (velocity * 1.2)));
+                    case "Residential" -> source.addEdge(new Edge(destination, length / velocity));
                 }
 
                 switch (tokens[7]) {
